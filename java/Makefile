@@ -10,18 +10,17 @@ BUILD_DIR := build
 # Find all .java files in the source directory
 SOURCES := $(shell find $(SOURCE_DIR) -name '*.java')
 
-default:
+default: $(SOURCES)
 	$(JCC) -d $(BUILD_DIR) $(SOURCES)
 
+.PHONY: run
 run:
 	$(J) -cp build Main
 
-# Target to clean up the build directory
 .PHONY: clean
 clean:
 	rm -rf $(BUILD_DIR)
 
-# Target to display help
 .PHONY: help
 help:
 	$(info	Run `make` to compile the project)
@@ -29,4 +28,3 @@ help:
 	$(info 	Run `make help` to show this message)
 
 
-# Don't treat these targets as file names
