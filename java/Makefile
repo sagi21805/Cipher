@@ -1,20 +1,32 @@
-
+# Makefile for Java project
 JCC = javac
 JFLAGS = -g
-RM = rm -r
-BUILD_DIR = .build
-SOURCE_DIR = src
+J = java
 
+# Define the source and build directories
+SOURCE_DIR := src
+BUILD_DIR := build
 
-default: Main.class
+# Find all .java files in the source directory
+SOURCES := $(shell find $(SOURCE_DIR) -name '*.java')
 
+default:
+	$(JCC) -d $(BUILD_DIR) $(SOURCES)
 
-Main.class: $(SOURCE_DIR)/Main.java
-	$(JCC) -d build src/*.java
+run:
+	$(J) -cp build Main
 
-# To start over from scratch, type 'make clean'.  
-# Removes all .class files, so that the next make rebuilds them
+# Target to clean up the build directory
+.PHONY: clean
 clean:
-	$(RM) build/*.class
+	rm -rf $(BUILD_DIR)
 
-default: Main.class
+# Target to display help
+.PHONY: help
+help:
+	$(info	Run `make` to compile the project)
+	$(info  Run `make clean` to erase the build directory)
+	$(info 	Run `make help` to show this message)
+
+
+# Don't treat these targets as file names
