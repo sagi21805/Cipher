@@ -1,4 +1,5 @@
-package java.src;
+package SnowFlake;
+import static SnowFlake.TokenType.*;
 
 class Token {
     final TokenType type;

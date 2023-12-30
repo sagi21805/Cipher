@@ -15,7 +15,7 @@ default: $(SOURCES)
 
 .PHONY: run
 run:
-	$(J) -cp build Main
+	$(J) -cp build SnowFlake.SnowFlake
 
 .PHONY: clean
 clean:

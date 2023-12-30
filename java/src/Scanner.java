@@ -1,11 +1,11 @@
-package java.src;
+package SnowFlake;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import java.src.TokenType.*; 
+import static SnowFlake.TokenType.*; 
 
 class Scanner {
     private int start = 0;
@@ -42,12 +42,30 @@ class Scanner {
 			case '+': addToken(PLUS); break;
 			case ';': addToken(SEMICOLON); break;
 			case '*': addToken(STAR); break; 
-
+			case '!':
+				addToken(match('=') ? NOT_EQUAL : NOT);
+				break;
+			case '=':
+				addToken(match('=') ? EQUAL_EQUAL : EQUAL);
+				break;
+			case '<':
+				addToken(match('=') ? LESS_EQUAL : LESS);
+				break;
+			case '>':
+				addToken(match('=') ? GREATER_EQUAL : GREATER);
+				break;
 			default:
-				Lox.error(line, "Unexpected character.");
+				SnowFlake.error(line, "Unexpected character.");
 				break;
 
 		}
+	}
+
+	private boolean match(char expected) {
+		if (isAtEnd()) {return false;}
+		if (source.charAt(current) != expected) {return false;}
+		current++;
+		return true;
 	}
 
 	private char advance(){

@@ -1,4 +1,4 @@
-package java.src;
+package SnowFlake;
 
 enum TokenType {
     // Single-character tokens.
@@ -19,4 +19,4 @@ enum TokenType {
     PRINT, RETURN, SUPER, THIS, TRUE, VAR, WHILE,
   
     EOF
-  }
+};

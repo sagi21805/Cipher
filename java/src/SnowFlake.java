@@ -1,4 +1,4 @@
-package java.src;
+package SnowFlake;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,7 +9,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class Cipher {
+public class SnowFlake{
 
 	static boolean hadError = false;
 
@@ -38,7 +38,7 @@ public class Cipher {
 		BufferedReader reader = new BufferedReader(input);
 	
 		for (;;) { 
-		  System.out.print("👁️ ");
+		  System.out.print("❄️  ");
 		  String line = reader.readLine();
 		  if (line == null) {break;}
 		  run(line);
@@ -48,13 +48,13 @@ public class Cipher {
 	  }
 
 	  private static void run(String source) {
-		Scanner scanner = new Scanner(source);
-		List<Token> tokens = scanner.scanTokens();
+		// Scanner scanner = new Scanner(source);
+		// List<Token> tokens = scanner.scanTokens();
 		
-		//For now, just print the tokens.
-		for (Token token : tokens) {
-		  System.out.println(token);
-		}
+		// //For now, just print the tokens.
+		// for (Token token : tokens) {
+		//   System.out.println(token);
+		// }
 	  }
 
 	  static void error(int line, String message) {
