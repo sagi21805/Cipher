@@ -1,3 +1,3 @@
-# My Programming language.
+#SNOWFLAKE.
 
 This project is ment for learning and creating a custom interpeted language using c & c++. 
